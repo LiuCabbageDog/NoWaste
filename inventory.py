@@ -9,7 +9,6 @@ This is the main file of all the Application.
 '''
 
 import csv # library for managing csv file
-from datetime import date # library for inducting 'date' data type.
 
 def main():
         add_item()
@@ -23,37 +22,28 @@ def main():
         ShowAsString()
 
 
-
-'''
-# 提示用户输入日期
-user_input = input("请输入一个日期(格式:YYYY-MM-DD):")
-
-try:
-    # 解析用户输入的日期字符串为 datetime.date 对象
-    date_object = datetime.strptime(user_input, "%Y-%m-%d").date()
-    print(f"您输入的日期是：{date_object}")
-except ValueError:
-    # 捕获输入格式错误
-    print("输入的日期格式不正确，请使用 YYYY-MM-DD 格式。")
-'''
-
-
 # Add new items into inventroy.
 '''
-status = ['Normal','Expiring soon', 'Expired', 'Used']
+1. status = ['Normal','Expiring soon', 'Expired', 'Used', Invalid date]
+        Normal status is longer than 3 days before expired date
+        Expiring soon status is within 3 days before expired date
+        Expired status is after expired date
+        Used status is past and invalid item, all 3 status above is unused status.
+2. editing item can be simplified to delet first and then add it back.
+
 '''
 def add_item():
         new_item = []
         # input fields of a new item into a list.
         user_input = input("Please input item name, item id, category, quantity, unit of quantity, purchase date,"
-                        "shelf life, expired date, status, total price, where you buy.\nEvery data is separated by comma.\n")
+                        "expired date, status, total price, where you buy.\nEvery data is separated by comma.\n")
         new_item = user_input.split(',')
 
         # input error handling.
-        while(len(new_item) != 11): # Use a constant here, can be optimized in the future.
+        while(len(new_item) != 10): # Use a constant here, can be optimized in the future.
                 print("Input wrong number of fields!\n")
                 user_input = input("Please input item name, item id, category, quantity, unit of quantity, purchase date,"
-                           "shelf life, expired date, status, total price, where you buy.\nEvery data is separated by comma.\n")
+                                "expired date, status, total price, where you buy.\nEvery data is separated by comma.\n")
                 new_item = user_input.split(',')
 
         # put the new item list into databse.
@@ -98,7 +88,7 @@ def add_item():
         new_item.append(Store)
         '''
 
-# delete specified row with id.
+# delete specified row with id, id is a string.
 def delete_item(id):
         # Write a new table except which we want to delete. Here is an empty list waits for qualified data.
         new_table = []
@@ -119,19 +109,38 @@ def delete_item(id):
                 writer.writerows(new_table)
 
 # print current form as dictionary
+# return inventory data as a list, each row is a dictionary.
 def ShowAsDict():
         with open('database.csv', 'r') as file:
-                reader = csv.DictReader(file)
+                reader = csv.DictReader(file) 
                 for row in reader:
                         print(row)
+                return reader
+
+# print current form as dictionary, but not including used item.
+# return inventory data as a list, each row is a dictionary.
+def ShowValidAsDict():
+        with open('database.csv', 'r') as file:
+                new_list = []
+                reader = csv.DictReader(file) # reader is a list of dictionary
+                for row in reader: # row is a dictionary
+                        if (row["Status"] == 'Used'):
+                                pass
+                        else:
+                                new_list.append(row) # only include not used item in new list
+                
+                #print new list except used item
+                for row in new_list:
+                        print(row)
+                
+                return new_list
+
 
 # print current form as string
 def ShowAsString():
         with open('database.csv', 'r') as file:
-                reader = csv.reader(file);
+                reader = csv.reader(file); #reader is a list, each row is an string item in the list.
                 for row in reader:
                                 print(row)
-
-
 
 main()
