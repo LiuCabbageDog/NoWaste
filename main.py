@@ -1,0 +1,29 @@
+'''
+This is the main file of all the Application.
+1. Use initializer.py to initialize database, make header, clear content.
+2. Use inventory.py to add item, delete item, return item and show item in the database.
+    2.1 Update item is actually delete and add a new one.
+3. Use updateitem.py to refresh status in the database, and modify status manually.
+4. 
+
+Programming Tool:
+
+1. Use Matplotlib to create chart and diagram, reflecting the fluctuation of inventory.
+2. Use tkinter to show front UI.
+3. Use csv file "database" to store data.
+
+'''
+
+
+def main():
+        add_item()
+        add_item()
+
+        ShowAsString()
+
+        delete_id = input('please input id of the item you want to delete: ')
+        delete_item(delete_id)
+
+        ShowAsString()
+
+main()

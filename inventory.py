@@ -1,26 +1,4 @@
-'''
-This is the main file of all the Application.
-
-1. Use this file to manage the CRUD of inventory.
-2. Use Matplotlib to create chart and diagram, reflecting the fluctuation of inventory.
-3. Use tkinter to show front UI.
-4. Use csv file "database" to store data.
-5. Update item is actually delete and add a new one.
-'''
-
 import csv # library for managing csv file
-
-def main():
-        add_item()
-        add_item()
-
-        ShowAsString()
-
-        delete_id = input('please input id of the item you want to delete: ')
-        delete_item(delete_id)
-
-        ShowAsString()
-
 
 # Add new items into inventroy.
 '''
@@ -142,5 +120,3 @@ def ShowAsString():
                 reader = csv.reader(file); #reader is a list, each row is an string item in the list.
                 for row in reader:
                                 print(row)
-
-main()
