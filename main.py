@@ -1,10 +1,10 @@
 '''
 This is the main file of all the Application.
 1. Use initializer.py to initialize database, make header, clear content.
-2. Use inventory.py to add item, delete item, return item and show item in the database.
+2. Use inventory.py to add item, delete item, return item.
     2.1 Update item is actually delete and add a new one.
 3. Use updateitem.py to refresh status in the database, and modify status manually.
-4. 
+4. Use show.py to return all kinds of needed inventory data.
 
 Programming Tool:
 

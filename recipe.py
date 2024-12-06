@@ -1,5 +1,5 @@
 from openai import OpenAI
-import inventory
+import show
 import random
 
 '''
@@ -30,7 +30,7 @@ def ask_gpt(prompt):
 
 
 def get_recipe():
-    ingridient = inventory.ShowValidAsDict()
+    ingridient = show.ShowValidAsDict()
     ingridient_string = '' #use to stroe name of select ingridient
 
     if(len(ingridient) <= 5):
