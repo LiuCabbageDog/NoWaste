@@ -1,16 +1,43 @@
-import os
 from openai import OpenAI
+import os
 
-client = OpenAI(
-    api_key='wait to input'
-)
+'''
+# set OpenAI API key
+OpenAI.api_key = os.getenv("OPENAI_API_KEY")
 
-chat_completion = client.chat.completions.create(
-    messages=[
-        {
-            "role": "user",
-            "content": "Say this is a test",
-        }
-    ],
-    model="gpt-3.5-turbo",
-)
+if not OpenAI.api_key:
+    raise ValueError("api_key is not set")
+'''
+
+def ask_gpt(prompt):
+    client = OpenAI()
+    completion = client.chat.completions.create(
+        model="gpt-3.5-turbo-0125",
+        messages=[
+            {"role": "system", "content": "You are a helpful assistant."},
+            {
+                "role": "user",
+                "content": prompt
+            }
+        ]
+    )
+    print(completion.choices[0].message.content)
+
+
+def main():
+    ask_gpt("1+1等于几")
+
+main()
+
+
+
+
+
+'''
+How to set key of openai?
+1. 
+export OPENAI_API_KEY="your_openai_api_key"
+2. 
+echo $OPENAI_API_KEY
+
+'''
