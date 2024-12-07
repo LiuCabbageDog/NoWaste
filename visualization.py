@@ -60,8 +60,8 @@ def SpendingByMonthChart():
     # To convert this dictionary to a chart.
     
     # 将字典的键值按月份排序
-    months = sorted(monthly_spending.keys())  # ordered month
-    spendings = [monthly_spending[month] for month in months]  # adjust spending order
+    months = sorted(spendingbymonth.keys())  # ordered month
+    spendings = [spendingbymonth[month] for month in months]  # adjust spending order
 
     # Draw line chart
     plt.figure(figsize=(10, 6))  # 设置图表大小
