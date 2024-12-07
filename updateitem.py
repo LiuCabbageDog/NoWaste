@@ -18,7 +18,7 @@ def UpdateStatus():
     # Iterate over each row and compare current date to expired date
     for index, row in file.iterrows():
         # Check if the expired date is valid
-        if pd.isnull(row['Expired Date']):
+        if pandas.isnull(row['Expired Date']):
             # If expired date is invalid, set status as 'Invalid date'
             file.loc[index, 'Status'] = 'Invalid date'
         else:

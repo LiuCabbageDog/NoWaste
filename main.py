@@ -5,6 +5,7 @@ This is the main file of all the Application.
     2.1 Update item is actually delete and add a new one.
 3. Use updateitem.py to refresh status in the database, and modify status manually.
 4. Use show.py to return all kinds of needed inventory data.
+5. Use visualization.py to show charts of inventory.
 
 Programming Tool:
 

@@ -41,15 +41,15 @@ def ShowAsString():
 # This function can be used to compare prices of the same ingridient in different stroe and time.
 def ShowSpecifiedItem(name):
     with open('database.csv', 'r') as file:
-    new_list = []
-    reader = csv.DictReader(file) # reader is a list of dictionary
-    for row in reader: # row is a dictionary
-            if (row["Name"] == name):
-                    new_list.append(row) # only include specified item in new list.
-    
-    #print new list except used item
-    for row in new_list:
-            print(row)
-    
-    return new_list
+        new_list = []
+        reader = csv.DictReader(file) # reader is a list of dictionary
+        for row in reader: # row is a dictionary
+                if (row["Name"] == name):
+                        new_list.append(row) # only include specified item in new list.
+        
+        #print new list except used item
+        for row in new_list:
+                print(row)
+        
+        return new_list
 
