@@ -5,6 +5,7 @@ import csv # library for managing csv file
 
 # 1. Compare current date to expired date with TIME library.
 # 2. Update status data with PANDAS library.
+# 待删除：每次拉数据库数据的时候都要调一遍更新状态函数
 def UpdateStatus():
     # Read file into pandas' special data type.
     file = pandas.read_csv('database.csv')

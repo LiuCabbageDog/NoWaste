@@ -14,17 +14,17 @@ Programming Tool:
 3. Use csv file "database" to store data.
 
 '''
-
+import inventory
+import show
 
 def main():
-        add_item()
-        add_item()
+        inventory.add_item()
 
-        ShowAsString()
+        show.ShowAsString()
 
         delete_id = input('please input id of the item you want to delete: ')
-        delete_item(delete_id)
+        inventory.delete_item(delete_id)
 
-        ShowAsString()
+        show.ShowAsString()
 
 main()

@@ -13,7 +13,7 @@ if not openai.api_key:
     raise ValueError("api_key is not set")
 '''
 
-
+# 待删除：你不要用
 def ask_gpt(prompt):
     client = OpenAI()
     completion = client.chat.completions.create(

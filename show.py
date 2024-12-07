@@ -5,8 +5,10 @@ import csv # library for managing csv file
 def ShowAsDict():
         with open('database.csv', 'r') as file:
                 reader = csv.DictReader(file) 
+                '''
                 for row in reader:
                         print(row)
+                '''
                 return reader
 
 
@@ -21,11 +23,11 @@ def ShowValidAsDict():
                                 pass
                         else:
                                 new_list.append(row) # only include not used item in new list
-                
+                '''
                 #print new list except used item
                 for row in new_list:
                         print(row)
-                
+                '''
                 return new_list
 
 
@@ -39,6 +41,7 @@ def ShowAsString():
 
 # return specified ingridient in inventory.
 # This function can be used to compare prices of the same ingridient in different stroe and time.
+# 待删除：比价函数，输入名字，输出一个字典的列表
 def ShowSpecifiedItem(name):
     with open('database.csv', 'r') as file:
         new_list = []
