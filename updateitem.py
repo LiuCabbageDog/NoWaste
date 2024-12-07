@@ -11,7 +11,7 @@ def UpdateStatus():
     file = pandas.read_csv('database.csv')
 
     # Convert expired date column to datetime type in pandas
-    file['Expired Date'] = pandas.to_datetime(file['date_column'], errors='coerce')
+    file['Expired Date'] = pandas.to_datetime(file['Expired Date'], errors='coerce')
 
     # Get current date
     current_date = datetime.now().date()
