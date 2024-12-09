@@ -77,5 +77,6 @@ def SpendingByMonthChart():
     plt.legend()
     # 显示图形
     plt.tight_layout()
+    plt.show()
     plt.savefig('spendingbymonth.png')  # 保存为文件
     plt.close()

@@ -9,7 +9,7 @@ def ShowAsDict():
                 for row in reader:
                         print(row)
                 '''
-                return reader
+                return list(reader)
 
 
 # print current form as dictionary, but not including used item.
